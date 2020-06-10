@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Coding Test</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var first,last;
+        $("#combine").click(function(){
+          first=$("#first").val();
+          last=$("#last").val();
+          $.post("http://localhost:8080/combine",{first: first,last: last}, function(data){
+            if(data==='yes') {
+                alert("input success");
+              }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>StemHub</h1>
+    <label for="first">First name:</label><br>
+    <input type="text" id="fisrt" name="first"><br>
+    <label for="last">Last name:</label><br>
+    <input type="text" id="last" name="last"><br>
+    <input type="button" id="combine" value="Combine">
+  </body>
+</html>
